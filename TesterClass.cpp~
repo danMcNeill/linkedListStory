@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+#include <string>
+#include <cstdlib>
+#include "TesterClass.h"
+
+TesterClass::TesterClass() {
+	num = 0;
+}
+
+TesterClass::TesterClass(int i) {
+	num = i;
+}
+
+TesterClass::~TesterClass() {
+
+}
+
+bool TesterClass::operator==(const TesterClass& lhs, const TesterClass& rhs) {
+	if(lhs.num == rhs.num)
+		return true;
+	return false;
+}
+
+bool TesterClass::operator<(const TesterClass& lhs, const TesterClass& rhs) {
+	if(lhs.num < rhs.num)
+		return true;
+	return false;
+}
+
+bool TesterClass::operator>(const TesterClass& lhs, const TesterClass& rhs) {
+	if(lhs.num > rhs.num)
+		return true;
+	return false;
+}
+
+friend std::ostream& operator<<(std::ostream& o, const TesterClass& tc) {
+	o << tc.num;
+	return o;
+}
